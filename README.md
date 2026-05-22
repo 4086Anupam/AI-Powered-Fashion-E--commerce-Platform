@@ -3,17 +3,15 @@
 
 ---
 
-## 🎯 Project Overview
+# 📌 Project Overview
 
-This is a full-featured **E-Commerce Platform** frontend built with React and TypeScript. The platform supports three distinct user roles: **Customers**, **Sellers**, and **Admins**, each with their own dedicated interfaces and functionalities.
+The **AI-Powered Fashion E-Commerce Platform** is an intelligent online shopping application designed to enhance the customer shopping experience using Artificial Intelligence.
 
-### Key Highlights
-- Multi-vendor marketplace architecture
-- Role-based access control
-- Real-time cart and wishlist management
-- Order tracking and management
-- Seller dashboard with analytics
-- Admin panel for platform management
+The platform provides personalized fashion recommendations based on user preferences, shopping behavior, and current fashion trends. It also includes advanced AI features such as virtual try-on, skin tone–based outfit suggestions, and sentiment analysis of customer reviews to improve user engagement and product insights.
+
+The system helps users discover suitable fashion products more efficiently while enabling businesses to understand customer preferences, predict product demand, and improve overall sales performance.
+
+The application is built using a modern full-stack architecture with a responsive frontend, secure backend APIs, and AI-driven recommendation systems for smart decision-making.
 
 ---
 
@@ -143,99 +141,71 @@ Backend/
 └── README.md                        
     └── # Project documentation
 ```
-```
 
----
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js** (v16 or higher)
-- **npm** or **yarn** package manager
-- Backend API server running (default: `http://localhost:5454`)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd frontend
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Configure environment variables**
-   Create a `.env` file in the root directory:
-   ```env
-   REACT_APP_API_URL=http://localhost:5454
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
-
-5. **Open in browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-### Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm start` | Runs the app in development mode |
-| `npm test` | Launches the test runner |
-| `npm run build` | Builds the app for production |
-| `npm run eject` | Ejects from Create React App |
 
 ---
 
 ## 🏗 Architecture
 
-### Application Flow
+# 🏗️ System Architecture
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        App.tsx                               │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │                   ThemeProvider                          ││
-│  │  ┌───────────────────────────────────────────────────┐  ││
-│  │  │                    Navbar                          │  ││
-│  │  └───────────────────────────────────────────────────┘  ││
-│  │  ┌───────────────────────────────────────────────────┐  ││
-│  │  │                   Routes                           │  ││
-│  │  │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐  │  ││
-│  │  │  │  Customer   │ │   Seller    │ │   Admin     │  │  ││
-│  │  │  │   Pages     │ │   Pages     │ │   Pages     │  │  ││
-│  │  │  └─────────────┘ └─────────────┘ └─────────────┘  │  ││
-│  │  └───────────────────────────────────────────────────┘  ││
-│  │  ┌───────────────────────────────────────────────────┐  ││
-│  │  │                    Footer                          │  ││
-│  │  └───────────────────────────────────────────────────┘  ││
-│  └─────────────────────────────────────────────────────────┘│
-└─────────────────────────────────────────────────────────────┘
+```text
+                    ┌───────────────────────┐
+                    │      Frontend         │
+                    │   React + TypeScript  │
+                    └──────────┬────────────┘
+                               │
+                               │ HTTP Requests / REST APIs
+                               ▼
+                    ┌───────────────────────┐
+                    │   Spring Boot Backend │
+                    │   REST API Layer      │
+                    └──────────┬────────────┘
+                               │
+        ┌──────────────────────┼──────────────────────┐
+        │                      │                      │
+        ▼                      ▼                      ▼
+┌───────────────┐    ┌────────────────┐    ┌────────────────┐
+│ Authentication│    │ Business Logic │    │ AI Services    │
+│ & Security    │    │ Service Layer  │    │ Recommendation │
+│ JWT + Spring  │    │                │    │ & Analysis     │
+│ Security      │    │                │    │                │
+└──────┬────────┘    └────────┬───────┘    └────────┬───────┘
+       │                      │                     │
+       └──────────────┬───────┴─────────────────────┘
+                      │
+                      ▼
+            ┌───────────────────┐
+            │ Repository Layer  │
+            │ Spring Data JPA   │
+            └─────────┬─────────┘
+                      │
+                      ▼
+            ┌───────────────────┐
+            │     MySQL DB      │
+            │ User & Product    │
+            │ Data Storage      │
+            └───────────────────┘
 ```
 
-### Data Flow (Redux)
+## 📌 Architecture Flow
 
-```
-┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│   Component  │────>│    Action    │────>│   Reducer    │
-└──────────────┘     └──────────────┘     └──────────────┘
-       ^                                         │
-       │                                         v
-       │                                  ┌──────────────┐
-       └──────────────────────────────────│    Store     │
-                                          └──────────────┘
-```
+1. The user interacts with the React frontend application.
 
+2. Frontend sends HTTP requests to the Spring Boot REST APIs.
+
+3. Spring Security and JWT handle authentication and authorization.
+
+4. Controllers receive API requests and forward them to the Service Layer.
+
+5. The Service Layer processes business logic and AI-related operations.
+
+6. Repository Layer communicates with the MySQL database using Spring Data JPA.
+
+7. AI modules generate personalized recommendations and sentiment analysis.
+
+8. The processed response is sent back to the frontend and displayed to the user.
 ---
 
 ## ✨ Features
@@ -312,6 +282,8 @@ export enum UserRole {
 ```
 
 ---
+
+## Frontend
 
 ## 📦 State Management
 
