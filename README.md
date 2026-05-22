@@ -1,22 +1,5 @@
-# E-Commerce Platform - Frontend Documentation
+# E-Commerce Platform - Documentation
 
-## 📋 Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Technology Stack](#technology-stack)
-3. [Project Structure](#project-structure)
-4. [Getting Started](#getting-started)
-5. [Architecture](#architecture)
-6. [Features](#features)
-7. [User Roles](#user-roles)
-8. [State Management](#state-management)
-9. [API Configuration](#api-configuration)
-10. [Routing](#routing)
-11. [Components](#components)
-12. [Type Definitions](#type-definitions)
-13. [Theming](#theming)
-14. [Utilities](#utilities)
-15. [Environment Variables](#environment-variables)
 
 ---
 
@@ -34,125 +17,132 @@ This is a full-featured **E-Commerce Platform** frontend built with React and Ty
 
 ---
 
-## 🛠 Technology Stack
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **React** | 19.2.0 | UI Library |
-| **TypeScript** | 4.9.5 | Type Safety |
-| **Redux Toolkit** | 2.10.1 | State Management |
-| **React Router DOM** | 7.9.5 | Client-side Routing |
-| **Material UI (MUI)** | 7.3.5 | UI Components |
-| **Axios** | 1.13.2 | HTTP Client |
-| **Formik** | 2.4.6 | Form Handling |
-| **Yup** | 1.7.1 | Form Validation |
-| **Recharts** | 3.3.0 | Data Visualization |
-| **React Slick** | 0.31.0 | Carousel/Slider |
-| **Day.js** | 1.11.19 | Date Manipulation |
-| **Styled Components** | 6.1.19 | CSS-in-JS Styling |
-| **Tailwind CSS** | - | Utility-first CSS |
-| **Lucide React** | 0.553.0 | Icons |
 
----
+# 🛠️ Tech Stack
 
-## 📁 Project Structure
+```text
+Frontend
+│
+├── React.js
+│   └── # User interface development
+│
+└── TypeScript
+    └── # Type-safe frontend development
+
+Backend
+│
+└── Java Spring Boot
+    └── # REST API & business logic
+
+Database
+│
+└── MySQL
+    └── # Relational database management
+
+Additional Technologies
+│
+├── JWT Authentication
+│   └── # Secure user authentication & authorization
+│
+├── Spring Security
+│   └── # Role-based access control & API security
+│
+├── Maven
+│   └── # Dependency management & build tool
+│
+├── REST APIs
+│   └── # Communication between frontend & backend
+│
+├── Git & GitHub
+│   └── # Version control & collaboration
+│
+└── AI Integration
+    └── # AI-powered 
+
 
 ```
-frontend/
-├── public/                     # Static assets
-│   ├── index.html             # HTML template
-│   ├── manifest.json          # PWA manifest
-│   └── robots.txt             # Search engine directives
+
+# 📂 Backend Project Structure
+
+```text
+Backend/
 │
 ├── src/
-│   ├── admin/                  # Admin module
-│   │   ├── component/         # Admin-specific components
-│   │   └── Pages/             # Admin pages
-│   │       ├── Coupon/        # Coupon management
-│   │       ├── DashBoard/     # Admin dashboard
-│   │       ├── HomePage/      # Home page management
-│   │       └── Sellers/       # Seller management
 │   │
-│   ├── customer/              # Customer module
-│   │   ├── components/        # Customer-specific components
-│   │   │   ├── Footer/        # Footer component
-│   │   │   └── Navbar/        # Navigation bar
-│   │   └── pages/             # Customer pages
-│   │       ├── Accounts/      # User account management
-│   │       ├── Auth/          # Authentication
-│   │       ├── BecomeSeller/  # Seller registration
-│   │       ├── Cart/          # Shopping cart
-│   │       ├── CheckOut/      # Checkout process
-│   │       ├── Home/          # Home page
-│   │       ├── Product/       # Product listing
-│   │       ├── ProductDetails/# Product detail view
-│   │       ├── Review/        # Product reviews
-│   │       └── WishList/      # Wishlist management
+│   ├── main/
+│   │   │
+│   │   ├── java/com/taskmanagement/
+│   │   │   │
+│   │   │   ├── config/              
+│   │   │   │   └── # Security & application configuration
+│   │   │   │
+│   │   │   ├── controller/          
+│   │   │   │   └── # REST API controllers
+│   │   │   │
+│   │   │   ├── dto/                 
+│   │   │   │   └── # Request & Response DTOs
+│   │   │   │
+│   │   │   ├── entities/            
+│   │   │   │   └── # JPA entity classes
+│   │   │   │
+│   │   │   ├── enums/               
+│   │   │   │   └── # Enum definitions
+│   │   │   │
+│   │   │   ├── exception/           
+│   │   │   │   └── # Global exception handling
+│   │   │   │
+│   │   │   ├── repository/          
+│   │   │   │   └── # JPA repositories
+│   │   │   │
+│   │   │   ├── security/            
+│   │   │   │   └── # JWT & Spring Security logic
+│   │   │   │
+│   │   │   ├── service/             
+│   │   │   │   └── # Service interfaces
+│   │   │   │
+│   │   │   ├── service/impl/        
+│   │   │   │   └── # Service implementations
+│   │   │   │
+│   │   │   ├── util/                
+│   │   │   │   └── # Utility/helper classes
+│   │   │   │
+│   │   │   └── TaskManagementApplication.java
+│   │   │
+│   │   └── resources/
+│   │       │
+│   │       ├── application.properties
+│   │       ├── application-dev.properties
+│   │       ├── application-prod.properties
+│   │       └── static/
 │   │
-│   ├── seller/                # Seller module
-│   │   ├── components/        # Seller-specific components
-│   │   │   └── SellerDrawerList/
-│   │   └── pages/             # Seller pages
-│   │       ├── Accounts/      # Seller account
-│   │       ├── Orders/        # Order management
-│   │       ├── Payment/       # Payment management
-│   │       ├── Products/      # Product management
-│   │       ├── SellerDashboard/
-│   │       └── sellerVerification/
-│   │
-│   ├── component/             # Shared components
-│   │   ├── DrawerList.tsx     # Navigation drawer
-│   │   └── ProfileFieldCard.tsx
-│   │
-│   ├── Config/                # Configuration
-│   │   └── Api.ts             # Axios API configuration
-│   │
-│   ├── data/                  # Static data
-│   │   ├── homeCategories.ts  # Home page categories
-│   │   ├── category/          # Category data
-│   │   ├── category1/         # Alternative categories
-│   │   └── Filter/            # Filter options (brand, color, etc.)
-│   │
-│   ├── Routes/                # Route configurations
-│   │   ├── AdminRoutes/       # Admin routes
-│   │   └── SellerRouts/       # Seller routes
-│   │
-│   ├── State/                 # Redux state management
-│   │   ├── Store.ts           # Redux store configuration
-│   │   ├── AuthSlice.ts       # Authentication state
-│   │   ├── fetchProduct.ts    # Product fetching utilities
-│   │   ├── Admin/             # Admin-related slices
-│   │   ├── Customer/          # Customer-related slices
-│   │   └── Seller/            # Seller-related slices
-│   │
-│   ├── theme/                 # MUI theme configuration
-│   │   └── customTheme.ts     # Custom theme settings
-│   │
-│   ├── type/                  # TypeScript type definitions
-│   │   ├── AddressType.ts
-│   │   ├── cartType.ts
-│   │   ├── couponType.ts
-│   │   ├── dealTypes.ts
-│   │   ├── homeCategoryTypes.ts
-│   │   ├── orderType.ts
-│   │   ├── ProductTypes.ts
-│   │   ├── SellerTypes.ts
-│   │   ├── TransactionType.ts
-│   │   ├── userType.ts
-│   │   └── wishlistType.ts
-│   │
-│   ├── Util/                  # Utility functions
-│   │   ├── sumCartItemSellingPrice.ts
-│   │   └── uploadToCloudinary.ts
-│   │
-│   ├── App.tsx                # Main application component
-│   ├── App.css                # Global styles
-│   ├── index.tsx              # Application entry point
-│   └── index.css              # Root styles
+│   └── test/
+│       └── java/com/taskmanagement/
 │
-├── package.json               # Dependencies and scripts
-├── tsconfig.json              # TypeScript configuration
-└── tailwind.config.js         # Tailwind CSS configuration
+├── target/                          
+│   └── # Compiled build files
+│
+├── Dockerfile                       
+│   └── # Docker image configuration
+│
+├── docker-compose.yml               
+│   └── # Multi-container setup
+│
+├── pom.xml                          
+│   └── # Maven dependencies & build configuration
+│
+├── .gitignore                       
+│   └── # Git ignored files
+│
+├── mvnw                             
+│   └── # Maven wrapper
+│
+├── mvnw.cmd                         
+│   └── # Maven wrapper for Windows
+│
+└── README.md                        
+    └── # Project documentation
+```
 ```
 
 ---
